@@ -1,0 +1,53 @@
+<section class="index">
+<div class="flash"><% flash.each do |key, value| %>
+ <%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
+</div>
+<h2 class="index-head">Books</h2>
+
+<table>
+<thead>
+<tr>
+<th class="index-text">Title</th>
+<th class="index-text">Body</th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<% @posts.each do |post| %>
+<tr> 
+<td class="index-text">
+<%= post.title %>
+</td>
+<td class="index-text">
+<%= post.body %>
+</td>
+<td class="index-text-detail">
+<div class="text-detail"><%= link_to "show", post_path(post.id), class:"show_#{@post.id}" %></div>
+<div class="text-detail"><%= link_to "edit", edit_post_path(post.id), class:"edit_#{@post.id}" %></div>
+<div class="text-detail"><%= link_to "destroy", post_path(post.id), method: :delete, "data-confirm" => "Are you sure?", class:"destroy_#{post.id}" %></div>
+
+</td>
+</tr>  
+<% end %>
+</tbody>   
+</table>
+
+<h3 class="index-sub-head">New book</h3>
+
+<%= form_for(@post) do |f| %>
+
+<div class="index-sub-text">
+	<h4>Title</h4>
+<%= f.text_field :title, class:"book_title" %>
+</div>
+
+<div class="index-sub-text"> 
+	<h4>Body</h4>
+<%= f.text_area :body, class:"book_body" %>
+</div>
+<%= f.submit 'Create Book' %>
+
+<% end %>
+</section>

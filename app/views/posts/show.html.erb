@@ -1,0 +1,15 @@
+<div class="flash"><% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
+</div>
+
+<p class="show-text indetant"><strong>Title:</strong>
+<%= @post.title %></p>
+<p class="show-text indetant"><strong>Body:</strong>
+<%= @post.body %></p>
+
+<p class="show-text"><%= link_to "Edit", edit_post_path(@post), class:"edit_#{@post.id}"%>
+|
+<%= link_to "Back", "/posts", class:"back" %>
+
+
