@@ -24,8 +24,8 @@
 <%= post.body %>
 </td>
 <td class="index-text-detail">
-<div class="text-detail"><%= link_to "show", post_path(post.id), class:"show_#{@post.id}" %></div>
-<div class="text-detail"><%= link_to "edit", edit_post_path(post.id), class:"edit_#{@post.id}" %></div>
+<div class="text-detail"><%= link_to "show", post_path(post.id), class:"show_#{post.id}" %></div>
+<div class="text-detail"><%= link_to "edit", edit_post_path(post.id), class:"edit_#{post.id}" %></div>
 <div class="text-detail"><%= link_to "destroy", post_path(post.id), method: :delete, "data-confirm" => "Are you sure?", class:"destroy_#{post.id}" %></div>
 
 </td>
